@@ -26,7 +26,7 @@ public class UsersController {
         return "/users";
     }
     @GetMapping("/user")
-    public String showUser(Model model,@RequestParam(value = "nameId", required = false) Long id) {
+    public String showUser(Model model,@RequestParam(value = "nameId", required = false) long id) {
         model.addAttribute("user",userService.showUser(id));
         return "/user";
     }
@@ -41,7 +41,7 @@ public class UsersController {
         return "redirect:/users";
     }
     @GetMapping("/delete")
-    public String delUser(@RequestParam(value = "id") Long id) {
+    public String delUser(@RequestParam(value = "id") long id) {
         userService.delUser(id);
         return "redirect:/users";
     }
