@@ -1,10 +1,10 @@
-package web.controller;
+package org.example.PP_2_3_1_spring_mvc_hibernate_boot.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.Service.UserService;
-import web.models.User;
+import org.example.PP_2_3_1_spring_mvc_hibernate_boot.Service.UserService;
+import org.example.PP_2_3_1_spring_mvc_hibernate_boot.models.User;
 
 @Controller
 @RequestMapping
@@ -21,7 +21,7 @@ public class UsersController {
         return "/users";
     }
     @GetMapping("/user")
-    public String showUser(Model model,@RequestParam(value = "nameId", required = false) int id) {
+    public String showUser(Model model,@RequestParam(value = "nameId", required = false) Long id) {
         model.addAttribute("user",userService.showUser(id));
         return "/user";
     }
@@ -36,7 +36,7 @@ public class UsersController {
         return "redirect:/users";
     }
     @GetMapping("/delete")
-    public String delUser(@RequestParam(value = "id") int id) {
+    public String delUser(@RequestParam(value = "id") Long id) {
         userService.delUser(id);
         return "redirect:/users";
     }
