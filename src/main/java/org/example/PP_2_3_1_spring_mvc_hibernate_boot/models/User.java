@@ -7,12 +7,12 @@ import jakarta.persistence.*;
 @Table(name = "User")
 public class User {
     @Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     @Column
-private String name;
+    private String name;
     @Column
-private String surname;
+    private String surname;
 
     public User() {
     }

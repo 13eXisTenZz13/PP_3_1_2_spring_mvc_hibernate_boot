@@ -1,6 +1,6 @@
 package org.example.PP_2_3_1_spring_mvc_hibernate_boot.controller;
 
-import org.example.PP_2_3_1_spring_mvc_hibernate_boot.Service.UserService;
+import org.example.PP_2_3_1_spring_mvc_hibernate_boot.service.UserService;
 import org.example.PP_2_3_1_spring_mvc_hibernate_boot.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping
 public class UsersController {
     private final UserService userService;
+
     @Autowired
     public UsersController(UserService userService) {
         this.userService = userService;
@@ -25,21 +26,25 @@ public class UsersController {
         model.addAttribute("people", userService.allUsers());
         return "/users";
     }
+
     @GetMapping("/user")
-    public String showUser(Model model,@RequestParam(value = "nameId", required = false) long id) {
-        model.addAttribute("user",userService.showUser(id));
+    public String showUser(Model model, @RequestParam(value = "nameId", required = false) long id) {
+        model.addAttribute("user", userService.showUser(id));
         return "/user";
     }
+
     @GetMapping("/newUser")
     public String newUser(Model model) {
-        model.addAttribute("user",new User());
+        model.addAttribute("user", new User());
         return "/newUser";
     }
+
     @PostMapping("/users")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/users";
     }
+
     @GetMapping("/delete")
     public String delUser(@RequestParam(value = "id") long id) {
         userService.delUser(id);

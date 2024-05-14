@@ -1,6 +1,6 @@
-package org.example.PP_2_3_1_spring_mvc_hibernate_boot.Service;
+package org.example.PP_2_3_1_spring_mvc_hibernate_boot.service;
 
-import org.example.PP_2_3_1_spring_mvc_hibernate_boot.DAO.UserDao;
+import org.example.PP_2_3_1_spring_mvc_hibernate_boot.dao.UserDao;
 import org.example.PP_2_3_1_spring_mvc_hibernate_boot.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
